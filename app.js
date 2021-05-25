@@ -18,9 +18,9 @@ app.use(cors());
 app.use('/api/send', sendRoute);
 
 // Connect to DB
-mongoose.connect(process.env.db, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log("Connected")
 })
 
 // Listens on localhost to port specified.
-app.listen(process.env.port || 3000);
+app.listen(process.env.PORT || 3000);

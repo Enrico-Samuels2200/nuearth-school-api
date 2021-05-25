@@ -15,15 +15,15 @@ router.post('/', async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.senderEmail,
-            pass: process.env.senderEmailPassword
+            user: process.env.SENDER_EMAIL,
+            pass: process.env.SENDER_EMAIL_PASSWORD
         }
     });
 
     // This setup the mail that will be sent along with the recipient
     let mailOptions = {
-        from: process.env.senderEmail,
-        to: process.env.recipientEmail,
+        from: process.env.SENDER_EMAIL,
+        to: process.env.RECIPIENT_EMAIL,
         subject: `Message from ${req.body.fullName}`,
         text: `Name: ${req.body.fullName}\nContact number: ${req.body.contactNumber}\nEmail: ${req.body.email}\nMessage:\n${req.body.message}`
     };
